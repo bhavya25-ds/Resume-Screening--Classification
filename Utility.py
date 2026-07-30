@@ -81,5 +81,33 @@ def get_models():
 
 # MODEL EVALUATION
 
-def evaluate_models():
-    
+def evaluate_models(model_name, y_true, y_pred):
+    "Weighted accuracy/ precision/ recall/ F1 (binary & multi-class)."
+    metrics= {
+        "Model": model_name,
+        "Accuracy": accuracy_score(y_true, y_pred),
+        "Precision": precision_score(y_true, y_pred, average="weighted", zero_division=0),
+        "Recall": recall_score(y_true, y_pred, average="weighted", zero_division=0),
+        "F1 Score": f1_score(y_true, y_pred, average="weighted", zero_division=0)
+    }
+    return metrics
+
+
+
+
+
+def plot_confusion_matrix(y_true, y_pred, model_name, labels=None, ax=None):
+    cm= confusion_matrix(y_true, y_pred)
+    if ax is None:
+        fig, ax= plt.subplots(figsize=(6,5))
+    sns.heatmap(cm, annot=True, fmt='d', cmap= "Blues", ax=ax, xticklabels=labels, yticklabels=labels)
+    ax.set_xlabel("Predicted"); ax.set_ylabel("Actual")
+    ax.set_title(f"Confusion Matrix- {model_name}")
+    return ax
+
+
+
+
+
+def compare_models(results_list):
+    return pd.DataFrame(results_list).sort_values("F1 Score", ascending=False).reset_index(drop=True)
