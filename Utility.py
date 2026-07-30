@@ -36,3 +36,31 @@ def load_data(filepath= "ResumeDataset.csv"):
     df= df[df["text"].astype(str).str.strip() != ""]
     return df.reset_index(drop=True)
 
+
+
+
+
+# TEXT CLEANING
+
+_URL_RE= re.compile(r"https\S+|www\.\S+")
+_HTML_RE= re.compile(r"<.*?>")
+_NONALPHA_RE= re.compile(r"[^a-z\s]")
+_MULTISPACE_RE= re.compile(r"\s+")
+
+
+def clean_text(text, remove_stopwords= True, min_token_len=2):
+    "Lowercase, strip URLs/HTML/punctuation/digits, drop stopwords and short tokens."
+    text= str(text).lower()
+    text= _URL_RE.sub(" ", text)
+    text= _HTML_RE.sub(" ", text)
+    text= _NONALPHA_RE.sub(" ", text)
+    tokens= _MULTISPACE_RE.sub(" ", text).strip().split()
+    out= [t for t in tokens if len(t) >= min_token_len and not (remove_stopwords and t in STOPWORDS)]
+    return " ".join(out)
+
+
+
+
+
+# MODELS
+
