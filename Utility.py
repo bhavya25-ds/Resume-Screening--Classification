@@ -32,6 +32,7 @@ except Exception:
 def load_data(filepath= "ResumeDataset.csv"):
     "Load the raw dataset with 'text' and 'label' columns; drop empties."
     df= pd.read_csv(filepath)
+    df = df.rename(columns={"Resume": "text", "Category": "label"})
     df= df.dropna(subset=["text", "label"])
     df= df[df["text"].astype(str).str.strip() != ""]
     return df.reset_index(drop=True)
