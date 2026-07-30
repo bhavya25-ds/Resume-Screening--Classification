@@ -8,7 +8,7 @@ along with comparing various models, and creating the confusion matrix.
 
 import re
 import numpy as np
-import pandas as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import (accuracy_score, precision_score, recall_score, f1_score, confusion_matrix)
@@ -24,3 +24,11 @@ except Exception:
     STOPWORDS= set(ENGLISH_STOP_WORDS)
 
 
+
+
+
+# DATA LOADING
+
+def load_data(filepath= "ResumeDataset.csv"):
+    "Load the raw dataset with 'text' and 'label' columns; drop empties."
+    df= pd.read_csv(filepath)
