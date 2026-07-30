@@ -64,3 +64,22 @@ def clean_text(text, remove_stopwords= True, min_token_len=2):
 
 # MODELS
 
+"Six fast classic ML text classifiers:-"
+def get_models():
+    return {
+        "Multinomial NB": MultinomialNB(),
+        "Complement NB": ComplementNB(),
+        "Logistic Regression": LogisticRegression(max_iter=1000),
+        "Linear SVM": LinearSVC(),
+        "Ridge Classifier": RidgeClassifier(),
+        "Passive Aggressive": PassiveAggressiveClassifier(max_iter=1000, random_state=42)
+    }
+
+
+
+
+
+# MODEL EVALUATION
+
+def evaluate_models():
+    
