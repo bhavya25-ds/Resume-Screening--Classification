@@ -62,13 +62,16 @@ This project builds an end-to-end NLP pipeline to classify resumes into 25 job c
 | Ridge Classifier | 0.9948 | 0.9957 | 0.9948 | 0.9949 |
 | Complement NB | 0.9948 | 0.9956 | 0.9948 | 0.9947 |
 | Logistic Regression | 0.9896 | 0.9907 | 0.9896 | 0.9895 |
-| Multinomial NB | — | — | — | — |
+| Multinomial NB | 0.9793 | 0.9817 | 0.9793 | 0.9762 |
 
 **After GridSearchCV tuning (Linear SVM, best C = 10):**
 - Test Accuracy: **100%** · Weighted F1: **100%**
 - All 193 test predictions correct (`test_predictions.csv`)
 
 **Key observation:** Linear SVM and Passive Aggressive both hit perfect scores on this dataset. Linear SVM was selected as the tuning target because it has a well-understood regularisation parameter (`C`) and is the standard strong baseline for high-dimensional sparse text features.
+
+<img width="930" height="790" alt="image" src="https://github.com/user-attachments/assets/784f13d5-fd26-4282-9e64-1fe7377402b0" />
+
 
 ---
 
