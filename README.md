@@ -36,7 +36,7 @@ This project builds an end-to-end NLP pipeline to classify resumes into 25 job c
 1. Clone the repo.
 2. Install dependencies:
    ```bash
-   pip install pandas numpy matplotlib seaborn scikit-learn nltk
+   pip install -r requirements.txt
    ```
 3. Download NLTK stopwords (once):
    ```python
