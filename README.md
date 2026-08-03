@@ -1,6 +1,9 @@
 # 📄 Resume Screening Classifier
+NLP-based resume classifier that maps resumes to 25 job categories using TF‑IDF + Linear SVM.
 
-This project builds an end-to-end NLP pipeline to classify resumes into 25 job categories. It uses text cleaning, TF‑IDF vectorization with bigrams, and a comparison of six classic classifiers, with Linear SVM (tuned via GridSearchCV) as the final model. The focus is on a clean, reproducible multi-class text classification workflow: from EDA and preprocessing to model evaluation, hyperparameter tuning, and auditable predictions.
+This project builds an end-to-end NLP pipeline to classify resumes into 25 job categories. It uses careful text cleaning, TF‑IDF vectorization with bigrams, and a comparison of six classic classifiers, with Linear SVM (tuned via GridSearchCV) as the final model. The focus is on a clean, reproducible multi-class text classification workflow: from EDA and preprocessing to model evaluation, hyperparameter tuning, and auditable predictions.
+
+The implementation is organized into three notebooks (EDA → cleaning → modeling) to keep the workflow transparent and reproducible.
 
 ---
 
@@ -68,7 +71,9 @@ This project builds an end-to-end NLP pipeline to classify resumes into 25 job c
 - Test Accuracy: **100%** · Weighted F1: **100%**
 - All 193 test predictions correct (`test_predictions.csv`)
 
-**Key observation:** Linear SVM and Passive Aggressive both hit perfect scores on this dataset. Linear SVM was selected as the tuning target because it has a well-understood regularisation parameter (`C`) and is the standard strong baseline for high-dimensional sparse text features.
+**Key observation:** 
+- Linear SVM and Passive Aggressive both hit perfect scores on this dataset. Linear SVM was selected as the tuning target because it has a well-understood regularisation parameter (`C`) and is the standard strong baseline for high-dimensional sparse text features.
+- These numbers reflect performance on this specific dataset and split; they should not be interpreted as expected performance on arbitrary real-world resumes.
 
 <img width="930" height="790" alt="image" src="https://github.com/user-attachments/assets/784f13d5-fd26-4282-9e64-1fe7377402b0" />
 
