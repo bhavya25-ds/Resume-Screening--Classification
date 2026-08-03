@@ -1,5 +1,6 @@
 # 📄 Resume Screening Classifier
-Classifying resumes into job categories using NLP. Resume screening is a real, high-volume problem — recruiters receive hundreds of applications per role and can't read every one manually. TF-IDF with a linear classifier is a strong baseline here because resumes within the same job category tend to share a consistent vocabulary (tools, skills, domain terms), and bag-of-words features capture that signal well. Built this as a structured NLP classification project to understand multi-class text classification before moving to more complex approaches.
+
+This project builds an end-to-end NLP pipeline to classify resumes into 25 job categories. It uses text cleaning, TF‑IDF vectorization with bigrams, and a comparison of six classic classifiers, with Linear SVM (tuned via GridSearchCV) as the final model. The focus is on a clean, reproducible multi-class text classification workflow: from EDA and preprocessing to model evaluation, hyperparameter tuning, and auditable predictions.
 
 ---
 
